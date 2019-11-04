@@ -1,37 +1,25 @@
-## Welcome to GitHub Pages
+# 8bit_datapath_AES
+This is a hardware implementation of AES (Advanced Encryption Standard)[1] algorithm written in Verilog. Because the datapath is 8-bit wide, the overall design is very compact. The architecture was published in [2]. The SBox is taken from Canright's optimal construction [3]. Please read these two papers for the details of my implementation. 
 
-You can use the [editor on GitHub](https://github.com/ayuljain7/Coursera-test/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+How to run the code? 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+1. Start Modelsim and enter the directory that contains all the implementaion files. 
+2. Type "source tb.tcl" in the command line of Modelsim. 
+3. You should be able to see the waveform now. (You can change the test vectors in aes_tb.v)
 
-### Markdown
+Future plans: 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+1. Extend the current implementation (AES-128) to AES-256, which I am currently working on.
 
-```markdown
-Syntax highlighted code block
+2. Extend this implementation to AES-192.
 
-# Header 1
-## Header 2
-### Header 3
+3. Replace Canright's Sbox by the Sbox implementation in [4], which was claimed to be even smaller than Canright's optimal construction. I used the modular approach to write this project, so any combinational implementation of SBox can be easily plugged into this architecture. 
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
+[1] FIPS-197, Advanced Encryption Standard (AES), National Institute of Standards and Technology.
 
-**Bold** and _Italic_ and `Code` text
+[2] Hämäläinen P, Alho T, Hännikäinen M, et al. Design and implementation of low-area and low-power AES encryption hardware core[C]//Digital System Design: Architectures, Methods and Tools, 2006. DSD 2006. 9th EUROMICRO Conference on. IEEE, 2006: 577-583.
 
-[Link](url) and ![Image](src)
-```
+[3] Canright D. A very compact Rijndael S-box[J]. 2004.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ayuljain7/Coursera-test/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+[4] Ueno R, Homma N, Sugawara Y, et al. Highly Efficient GF (2^ 8) Inversion Circuit Based on Redundant GF Arithmetic and Its Application to AES Design[M]//Cryptographic Hardware and Embedded Systems--CHES 2015. Springer Berlin Heidelberg, 2015: 63-80.
